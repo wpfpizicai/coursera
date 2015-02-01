@@ -23,12 +23,13 @@
     }
   })
   $('#add_user').on('click',function(e){
-    $.post('/user',{
+    var data = {
       name : $('#a_name').val(),
       email : $('#a_email').val()
-    },function(result){
+    };
+    $.post('/user',data,function(result){
       if(result.error == false){
-        addUser(result.data)
+        addUser($.extend(data,result.data));
       }
     })
   });
