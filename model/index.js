@@ -19,9 +19,9 @@ var sequence = require('when/sequence');
 var _ = require('lodash');
 
 function createTable(tableName) {
-  knex.schema.hasTable(tableName).then(function (exists) {
+  return knex.schema.hasTable(tableName).then(function (exists) {
     if(!exists){
-      knex.schema.createTable(tableName, function (table) {
+      return knex.schema.createTable(tableName, function (table) {
 
         var column;
         var columnKeys = _.keys(Schema[tableName]);
