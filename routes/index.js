@@ -10,7 +10,6 @@ router.get('/', function(req, res) {
 router.get('/user',function(req,res){
   controller.fetchAllUsers(function(result){
     if(result.error == false){
-      console.log(result);
       res.render('user',result);
     }
   })
