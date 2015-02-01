@@ -13,9 +13,9 @@
     var _target = $(e.target);
     if(_target && $(_target).prop("tagName").toLowerCase() == 'a'){
       $.post('deluser',{
-        id : $(_target).attr('data-id') - 0
-      }function(result){
-        id(result.error == false){
+        id : $(_target).attr('data-id') - 0 + 1
+      },function(result){
+        if(result.error == false){
           $(_target).parent().remove()
         }
       })
