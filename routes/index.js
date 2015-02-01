@@ -33,7 +33,7 @@ router.post('/searchuser',function(req,res){
 });
 
 router.post('/deluser',function(req,res){
-  controller.searchUser({
+  controller.delUser({
     id : req.body.id
   },function(result){
     res.json(result)
