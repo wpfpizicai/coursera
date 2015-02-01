@@ -83,14 +83,14 @@ function createTables () {
   return sequence(tables);
 }
 
-createTables()
-  .then(function() {
-    console.log('Tables created!!');
-    process.exit(0);
-  })
-  .otherwise(function (error) {
-    throw error;
-  });
+// createTables()
+//   .then(function() {
+//     console.log('Tables created!!');
+//     process.exit(0);
+//   })
+//   .otherwise(function (error) {
+//     throw error;
+//   });
 
 // define user model
 var User = Bookshelf.Model.extend({
