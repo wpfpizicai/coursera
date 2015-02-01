@@ -86,18 +86,22 @@ function createTables () {
   return sequence(tables);
 }
 
-createTables()
-  .then(function() {
-    console.log('Tables created!!');
-    process.exit(0);
-  })
-  .otherwise(function (error) {
-    throw error;
-  });
+// createTables()
+//   .then(function() {
+//     console.log('Tables created!!');
+//     process.exit(0);
+//   })
+//   .otherwise(function (error) {
+//     throw error;
+//   });
 
 // define user model
 var User = Bookshelf.Model.extend({
   tableName: 'users'
+});
+
+var Category = Bookshelf.Model.extend({
+  tableName : 'categories'
 });
 
 var Lesson = Bookshelf.Model.extend({
@@ -105,6 +109,8 @@ var Lesson = Bookshelf.Model.extend({
   hasTimestamps: ['created_at', 'updated_at']
 });
 
+
 exports.User = User;
+exports.Category = Category;
 exports.Lesson = Lesson;
 exports.Bookshelf = Bookshelf;
