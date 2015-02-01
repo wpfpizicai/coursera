@@ -25,7 +25,7 @@
   $('#add_user').on('click',function(e){
     $.post('/user',{
       name : $('#a_name').val(),
-      email : $('#a_email').val
+      email : $('#a_email').val()
     },function(result){
       if(result.error == false){
         addUser(result.data)
