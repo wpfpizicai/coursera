@@ -5,10 +5,16 @@ block content
   p Welcome to Users's Page
   ul#user_list
     each val,index in data
-      li #{index} + #{val.name} + ":" + #{val.email}
+      li= index + ":" + val.name + ":" + val.email
+        a.del(href="javascript:void;") del
 
   h1 add user
   form(action="/user" method="post")
-    input(type="text" name="name" placeholder="name")
-    input(type="text" name="email" placeholder="email")
-    input(type="submit" value="submit")
+    input(type="text" name="name" placeholder="name" id='a_name')
+    input(type="text" name="email" placeholder="email" id="a_eamil")
+    button#add_user (add user)
+
+  h1 search user
+  input(type="text" name="name" placeholder="name" id="s_name")
+  p#search_user_result
+  button#search_user (search user)

@@ -6,6 +6,22 @@ var Users = Bookshelf.Collection.extend({
   model: User
 });
 
+var searchUser = function(obj,cb){
+  User.forge(obj)
+    .fetch()
+    .then(function (user) {
+      if (!user) {
+        cb && cb({error: false, data: {}});
+      }
+      else {
+        cb && cb({error: false, data: user.toJSON()});
+      }
+    })
+    .otherwise(function (err) {
+      cb && cb({error: true, data: {message: err.message}})
+    });
+};
+
 var fetchAllUsers = function(cb){
   Users.forge()
     .fetch()
@@ -27,5 +43,7 @@ var addUser = function (obj,cb) {
     });
 };
 
+
+exports.searchUser = searchUser;
 exports.fetchAllUsers = fetchAllUsers;
 exports.addUser = addUser;

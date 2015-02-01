@@ -24,4 +24,12 @@ router.post('/user',function(req,res){
     })
 })
 
+router.post('/searchuser',function(req,res){
+  controller.searchUser({
+    name : req.body.name
+  },function(result){
+    res.json(result)
+  })
+})
+
 module.exports = router;
