@@ -6,15 +6,15 @@ block content
   ul#user_list
     each val,index in data
       li= index + ":" + val.name + ":" + val.email
-        a.del(href="javascript:void;") del
+        a.del(href="javascript:void;" data-id= index) del
 
   h1 add user
   form(action="/user" method="post")
     input(type="text" name="name" placeholder="name" id='a_name')
     input(type="text" name="email" placeholder="email" id="a_eamil")
-    button#add_user (add user)
+    button#add_user add user
 
   h1 search user
   input(type="text" name="name" placeholder="name" id="s_name")
   p#search_user_result
-  button#search_user (search user)
+  button#search_user search user

@@ -9,6 +9,18 @@
        $('#search_user_result').html("<li>" + data.id + ":" + data.name + ":" + data.email + "</li>");
     }
   }
+  $('#user_list').on('click',function(e){
+    var _target = $(e.target);
+    if(_target && $(_target).prop("tagName").toLowerCase() == 'a'){
+      $.post('deluser',{
+        id : $(_target).attr('data-id') - 0
+      }function(result){
+        id(result.error == false){
+          $(_target).parent().remove()
+        }
+      })
+    }
+  })
   $('#add_user').on('click',function(e){
     $.post('/user',{
       name : $('#a_name').val(),

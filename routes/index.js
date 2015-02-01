@@ -22,11 +22,19 @@ router.post('/user',function(req,res){
     },function(result){
       res.json(result)
     })
-})
+});
 
 router.post('/searchuser',function(req,res){
   controller.searchUser({
     name : req.body.name
+  },function(result){
+    res.json(result)
+  })
+});
+
+router.post('/deluser',function(req,res){
+  controller.searchUser({
+    id : req.body.id
   },function(result){
     res.json(result)
   })

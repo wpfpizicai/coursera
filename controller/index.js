@@ -43,7 +43,24 @@ var addUser = function (obj,cb) {
     });
 };
 
+var delUser = function(obj,cb){
+  User.forge(obj)
+    .fetch({require: true})
+    .then(function (user) {
+      user.destroy()
+      .then(function () {
+        cb && cb({error: false, data: {message: 'User successfully deleted'}});
+      })
+      .otherwise(function (err) {
+        cb && cb ({error: true, data: {message: err.message}})
+      });
+    })
+    .otherwise(function (err) {
+      cb && cb({error: true, data: {message: err.message}})
+    });
+}
 
 exports.searchUser = searchUser;
 exports.fetchAllUsers = fetchAllUsers;
 exports.addUser = addUser;
+exports.delUser = delUser;
