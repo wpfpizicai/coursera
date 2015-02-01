@@ -1,6 +1,7 @@
 var express = require('express');
-var controller = require('../controller');
 var router = express.Router();
+var controller = require('../controller');
+var Users = controller.Users;
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -8,7 +9,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/user',function(req,res){
-  controller.fetchAllUsers(function(result){
+  Users.fetchAllUsers(function(result){
     if(result.error == false){
       res.render('user',result);
     }
@@ -16,7 +17,7 @@ router.get('/user',function(req,res){
 });
 
 router.post('/user',function(req,res){
-  controller.addUser({
+  Users.addUser({
       name: req.body.name,
       email: req.body.email
     },function(result){
@@ -25,7 +26,7 @@ router.post('/user',function(req,res){
 });
 
 router.post('/searchuser',function(req,res){
-  controller.searchUser({
+  Users.searchUser({
     name : req.body.name
   },function(result){
     res.json(result)
@@ -33,7 +34,7 @@ router.post('/searchuser',function(req,res){
 });
 
 router.post('/deluser',function(req,res){
-  controller.delUser({
+  Users.delUser({
     id : req.body.id
   },function(result){
     res.json(result)
