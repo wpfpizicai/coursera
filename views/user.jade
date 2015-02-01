@@ -5,7 +5,7 @@ block content
   p Welcome to Users's Page
   ul
     each val index in data
-      li= index + ":" + val
+      li= index + ":" + val.email + val.name
 
   h1 add user
   form(action="/user" method="post")
