@@ -6,3 +6,9 @@ block content
   ul
     each val index in data
       li= index + ":" + val
+
+  h1 add user
+  form(action="/user" method="post")
+    input(type="text" name="name" placeholder="name")
+    input(type="text" name="email" placeholder="email")
+    input(type="submit" value="submit")

@@ -19,20 +19,14 @@ router.get('/user',function(req,res){
     });
 });
 
-router.post('/adduser/:id',function(req,res){
-  User.forge({id: req.params.id})
-    .fetch({require: true})
+router.post('/user',function(req,res){
+  User.forge({
+      name: req.body.name,
+      email: req.body.email
+    })
+    .save()
     .then(function (user) {
-      user.save({
-        name: req.body.name || user.get('name'),
-        email: req.body.email || user.get('email')
-      })
-      .then(function () {
-        res.json({error: false, data: {message: 'User details updated'}});
-      })
-      .otherwise(function (err) {
-        res.status(500).json({error: true, data: {message: err.message}});
-      });
+      res.json({error: false, data: {id: user.get('id')}});
     })
     .otherwise(function (err) {
       res.status(500).json({error: true, data: {message: err.message}});
