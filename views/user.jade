@@ -6,7 +6,7 @@ block content
   ul#user_list
     each val,index in data
       li= index + ":" + val.name + ":" + val.email
-        a.del(href="javascript:void;" data-id= index) del
+        a.del(href="javascript:void;" data-id= val.id) del
 
   h1 add user
   form(action="/user" method="post")

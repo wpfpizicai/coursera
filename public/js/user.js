@@ -1,6 +1,6 @@
 (function(){
   function addUser(data){
-    $('#user_list').append("<li>" + data.id + ":" + data.name + ":" + data.email + '<a class="del" href="javascript:void;">del </a>' + "</li>")
+    $('#user_list').append("<li>" + data.id + ":" + data.name + ":" + data.email + '<a class="del" href="javascript:void;" data-id="' + data.id + '">del </a>' + "</li>")
   };
   function addSearchUser(data){
     if(!data.id){
