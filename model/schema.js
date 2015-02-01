@@ -14,7 +14,8 @@ var Schema = {
     id: {type: 'increments', nullable: false, primary: true},
     category_id: {type: 'integer', nullable: false, unsigned: true},
     title: {type: 'string', maxlength: 150, nullable: false},
-    created_at: {type: 'dateTime', defaultTo : Date.now, nullable: false},
+    created_at: {type: 'dateTime', nullable: false},
+    updated_at: {type: 'dateTime', nullable: true}
   }
 };
 

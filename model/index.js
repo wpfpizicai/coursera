@@ -19,10 +19,9 @@ var sequence = require('when/sequence');
 var _ = require('lodash');
 
 function createTable(tableName) {
-
-  return knex.schema.hasTable(tableName).then(function (exists) {
+  knex.schema.hasTable(tableName).then(function (exists) {
     if(!exists){
-      return knex.schema.createTable(tableName, function (table) {
+      knex.schema.createTable(tableName, function (table) {
 
         var column;
         var columnKeys = _.keys(Schema[tableName]);
@@ -102,7 +101,8 @@ var User = Bookshelf.Model.extend({
 });
 
 var Lesson = Bookshelf.Model.extend({
-  tableName : 'lessons'
+  tableName : 'lessons',
+  hasTimestamps: ['created_at', 'updated_at']
 });
 
 exports.User = User;
