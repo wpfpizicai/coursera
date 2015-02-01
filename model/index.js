@@ -98,3 +98,4 @@ var User = Bookshelf.Model.extend({
 });
 
 exports.User = User;
+exports.Bookshelf = Bookshelf;
