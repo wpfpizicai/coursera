@@ -19,7 +19,7 @@ var fetchAllLessons = function(cb){
 var addLesson = function (obj,cb) {
   Lesson.forge(obj)
     .save()
-    .then(function (leson) {
+    .then(function (lesson) {
       cb && cb ({error: false, data: {id: lesson.get('id')}})
     })
     .otherwise(function (err) {
