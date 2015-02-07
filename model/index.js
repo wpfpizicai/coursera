@@ -1,5 +1,6 @@
-var app = require('../app');
-var Bookshelf = app.get('bookshelf');
+var conf = require('../db/conf');
+var knex = require('knex')(conf);
+var Bookshelf = require('bookshelf')(knex);
 
 // define user model
 var User = Bookshelf.Model.extend({
