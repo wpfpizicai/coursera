@@ -9,17 +9,6 @@ block content
         a.del(href="javascript:void;" data-id= val.id) del
 
 
-  p Welcome to Lessons's Page
-  ul#lesson_list
-    each val index in ldata
-      li= index + ":" + val.name
-
-
-  p Welcome to Tags's Page
-  ul#tag_list
-    each val index in tdata
-      li= index + ":" + val.name
-
   h1 add user
   div
     input(type="text" name="name" placeholder="user's name" id='a_name')
