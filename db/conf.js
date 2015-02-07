@@ -1,4 +1,4 @@
-modules.exports = {
+module.exports = {
   client: 'mysql',
   connection: {
     host: 'localhost',
