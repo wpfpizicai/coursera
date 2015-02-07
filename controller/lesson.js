@@ -17,8 +17,7 @@ var fetchAllLessons = function(cb){
     });
 }
 var addLesson = function (obj,cb) {
-  console.log(Lessons);
-  Lessons.forge(obj)
+  Lesson.forge(obj)
     .save()
     .then(function (leson) {
       cb && cb ({error: false, data: {id: lesson.get('id')}})

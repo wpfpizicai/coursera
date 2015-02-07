@@ -45,10 +45,6 @@ router.post('/deluser',function(req, res){
 });
 
 router.post('/lesson',function(req, res){
-  console.log(Lessons);
-  console.log({
-    name: req.body.name,
-  })
   Lessons.addLesson({
     name: req.body.name,
   },function(result){

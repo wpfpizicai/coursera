@@ -17,7 +17,7 @@ var fetchAllTags = function(cb){
     });
 }
 var addTag = function (obj,cb) {
-  Tags.forge(obj)
+  Tag.forge(obj)
     .save()
     .then(function (tag) {
       cb && cb ({error: false, data: {id: tag.get('id')}})
