@@ -1,21 +1,26 @@
 var Schema = {
-  users: {
+  user: {
     id: {type: 'increments', nullable: false, primary: true},
     email: {type: 'string', maxlength: 254, nullable: false, unique: true},
     name: {type: 'string', maxlength: 150, nullable: false}
   },
 
-  categories: {
+  tag: {
     id: {type: 'increments', nullable: false, primary: true},
     name: {type: 'string', maxlength: 150, nullable: false}
   },
 
-  lessons : {
+  lesson : {
     id: {type: 'increments', nullable: false, primary: true},
-    category_id: {type: 'integer', nullable: false, unsigned: true},
     title: {type: 'string', maxlength: 150, nullable: false},
-    created_at: {type: 'dateTime', nullable: false},
-    updated_at: {type: 'dateTime', nullable: true}
+  },
+  user_lesson : {
+    user_id: {type: 'integer', references: 'user.id'},
+    lesson_id: {type: 'integer', references: 'lesson.id'}
+  },
+  lesson_tag : {
+    lesson_id: {type: 'integer', references: 'lesson.id'},
+    tag_id: {type: 'integer', references: 'tag.id'}
   }
 };
 
