@@ -1,13 +1,13 @@
 var Model = require('../model');
 var Bookshelf = Model.Bookshelf;
-var Lesson = Model.Lesson;
+var Tag = Model.Tag;
 
-var Lessons = Bookshelf.Collection.extend({
-  model: Lesson
+var Tags = Bookshelf.Collection.extend({
+  model: Tag
 });
 
-var fetchAllLessons = function(cb){
-  Lessons.forge()
+var fetchAllTags = function(cb){
+  Tags.forge()
     .fetch()
     .then(function (collection) {
       cb && cb({error: false, data: collection.toJSON()})
@@ -16,15 +16,16 @@ var fetchAllLessons = function(cb){
       cb && cb({error: true, data: {message: err.message}})
     });
 }
-var addLesson = function (obj,cb) {
-  Lessons.forge(obj)
+var addTag = function (obj,cb) {
+  Tags.forge(obj)
     .save()
-    .then(function (leson) {
-      cb && cb ({error: false, data: {id: lesson.get('id')}})
+    .then(function (tag) {
+      cb && cb ({error: false, data: {id: tag.get('id')}})
     })
     .otherwise(function (err) {
       cb && cb ({error: true, data: {message: err.message}})
     });
 };
-exports.addLesson = addLesson;
-exports.fetchAllLessons = fetchAllLessons;
+
+exports.fetchAllTags = fetchAllTags;
+exports.addTag = addTag;

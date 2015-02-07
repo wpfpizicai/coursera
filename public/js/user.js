@@ -33,6 +33,29 @@
       }
     })
   });
+
+  $('#add_lesson').on('click',function(e){
+    var data = {
+      name : $('#l_name').val()
+    };
+    $.post('/lesson',data,function(result){
+      if(result.error == false){
+        console.log($.extend(data,result.data));
+      }
+    })
+  });
+
+  $('#add_tag').on('click',function(e){
+    var data = {
+      name : $('#t_name').val()
+    };
+    $.post('/tag',data,function(result){
+      if(result.error == false){
+        console.log($.extend(data,result.data));
+      }
+    })
+  });
+
   $("#search_user").on('click',function(e){
     $.post('searchuser',{
       name : $('#s_name').val()

@@ -8,11 +8,33 @@ block content
       li= index + ":" + val.name + ":" + val.email
         a.del(href="javascript:void;" data-id= val.id) del
 
+
+  p Welcome to Lessons's Page
+  ul#lesson_list
+    each val index in ldata
+      li= index + ":" + val.name
+
+
+  p Welcome to Tags's Page
+  ul#tag_list
+    each val index in tdata
+      li= index + ":" + val.name
+
   h1 add user
   div
-    input(type="text" name="name" placeholder="name" id='a_name')
-    input(type="text" name="email" placeholder="email" id="a_email")
+    input(type="text" name="name" placeholder="user's name" id='a_name')
+    input(type="text" name="email" placeholder="user's email" id="a_email")
     button#add_user add user
+
+  h1 add lesson
+  div
+    input(type="text" name="name" placeholder="lesson's name" id='l_name')
+    button#add_lesson add lesson
+
+  h1 add tag
+  div
+    input(type="text" name="name" placeholder="tag's name" id='t_name')
+    button#add_tag add tag
 
   h1 search user
   input(type="text" name="name" placeholder="name" id="s_name")
