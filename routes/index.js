@@ -59,7 +59,7 @@ router.get('/lesson',function(req, res){
 });
 
 router.post('/tag',function(req, res){
-  Lessons.addTag({
+  Tags.addTag({
     name: req.body.name,
   },function(result){
     res.json(result)
@@ -67,7 +67,7 @@ router.post('/tag',function(req, res){
 });
 
 router.get('/tag',function(req, res){
-  Lessons.fetchAllTags(function(result){
+  Tags.fetchAllTags(function(result){
     res.josn(result)
   })
 });

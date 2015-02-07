@@ -26,5 +26,6 @@ var addLesson = function (obj,cb) {
       cb && cb ({error: true, data: {message: err.message}})
     });
 };
+
 exports.addLesson = addLesson;
 exports.fetchAllLessons = fetchAllLessons;
