@@ -19,20 +19,28 @@ var Bookshelf = require('bookshelf')(knex);
 
 // define user model
 var User = Bookshelf.Model.extend({
-  tableName: 'users'
+  tableName: 'user'
 });
 
-var Category = Bookshelf.Model.extend({
-  tableName : 'categories'
+var Tag = Bookshelf.Model.extend({
+  tableName: 'tag'
 });
 
 var Lesson = Bookshelf.Model.extend({
-  tableName : 'lessons',
-  hasTimestamps: ['created_at', 'updated_at']
+  tableName: 'lesson'
 });
 
+var User_Lesson = Bookshelf.Model.extend({
+  tableName: 'user_lesson'
+});
+
+var Lesson_tag = Bookshelf.Model.extend({
+  tableName: 'lesson_tag'
+})
 
 exports.User = User;
-exports.Category = Category;
+exports.Tag = Tag;
 exports.Lesson = Lesson;
+exports.User_Lesson = User_Lesson;
+exports.Lesson_tag = Lesson_tag
 exports.Bookshelf = Bookshelf;
