@@ -1,21 +1,5 @@
-var knex = require('knex')({
-  client: 'mysql',
-  connection: {
-    host: 'localhost',
-    user: 'nodejs',
-    password: 'Wpf4284286',
-    database: 'nodejs',
-    charset: 'utf8'
-  },
-  pool: {
-    min: 0,
-    max: 7
-  }
-});
-
-var Bookshelf = require('bookshelf')(knex);
-
-
+var app = require('../app');
+var Bookshelf = app.get('bookshelf');
 
 // define user model
 var User = Bookshelf.Model.extend({
