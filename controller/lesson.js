@@ -17,6 +17,7 @@ var fetchAllLessons = function(cb){
     });
 }
 var addLesson = function (obj,cb) {
+  console.log(Lessons);
   Lessons.forge(obj)
     .save()
     .then(function (leson) {
