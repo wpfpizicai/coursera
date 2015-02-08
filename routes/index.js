@@ -90,7 +90,7 @@ router.post('/search_user_lesson',function(req, res){
     obj.user_id = req.body.u_id;
   }
   UserLessons.searchUserLesson(obj, function(result){
-    res.josn(result)
+    res.json(result)
   })
 });
 
