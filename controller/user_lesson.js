@@ -47,6 +47,6 @@ var searchUserLesson = function(obj, cb){
 
 exports.addUserLesson = addUserLesson;
 exports.fetchAllUserLesson = fetchAllUserLesson;
-exports.searchUserLesson = serachUserLesson;
+exports.searchUserLesson = searchUserLesson;
 
 
