@@ -15,17 +15,17 @@ var Lesson = Bookshelf.Model.extend({
   tableName: 'lesson'
 });
 
-var User_Lesson = Bookshelf.Model.extend({
+var UserLesson = Bookshelf.Model.extend({
   tableName: 'user_lesson'
 });
 
-var Lesson_tag = Bookshelf.Model.extend({
+var LessonTag = Bookshelf.Model.extend({
   tableName: 'lesson_tag'
 })
 
 exports.User = User;
 exports.Tag = Tag;
 exports.Lesson = Lesson;
-exports.User_Lesson = User_Lesson;
-exports.Lesson_tag = Lesson_tag
+exports.UserLesson = UserLesson;
+exports.LessonTag = LessonTag
 exports.Bookshelf = Bookshelf;

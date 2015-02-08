@@ -56,8 +56,32 @@
     })
   });
 
+  $('#add_user_lesson').on('click', function(e){
+    $.post('/add_user_lesson',{
+      l_id: $('#l_id').val(),
+      u_id: $('#u_id').val()
+    },function(result){
+      if(result.error == false){
+        $('#l_id').val("");
+        $('#u_id').val("");
+      }
+    })
+  })
+  $('#search_user_lesson').on('click', function(e){
+    $.post('/search_user_lesson',{
+      l_id: $('#l_id').val(),
+      u_id: $('#u_id').val()
+    },function(result){
+      if(result.error == false){
+        console.log(result);
+        $('#l_id').val("");
+        $('#u_id').val("");
+      }
+    })
+  })
+
   $("#search_user").on('click',function(e){
-    $.post('searchuser',{
+    $.post('/searchuser',{
       name : $('#s_name').val()
     },function(result){
       if(result.error ==  false){

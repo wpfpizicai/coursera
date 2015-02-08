@@ -5,6 +5,7 @@ var sequence = require('when/sequence');
 var Users = controller.Users;
 var Lessons = controller.Lessons;
 var Tags = controller.Tags;
+var UserLessons = controller.UserLessons;
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -68,6 +69,27 @@ router.post('/tag',function(req, res){
 
 router.get('/tag',function(req, res){
   Tags.fetchAllTags(function(result){
+    res.josn(result)
+  })
+});
+
+router.post('/add_user_lesson',function(req, res){
+  UserLessons.addUserLesson({
+    lesson_id: req.body.l_id,
+    user_id: req.body.u_id
+  },function(result){
+    res.json(result)
+  })
+});
+router.post('/search_user_lesson',function(req, res){
+  var obj = {};
+  if(req.body.l_id){
+    obj.lesson_id = req.body.l_id
+  }
+  if(req.body.u_id){
+    obj.user_id = req.body.u_id;
+  }
+  UserLessons.searchUserLesson(obj, function(result){
     res.josn(result)
   })
 });
