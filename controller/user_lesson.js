@@ -29,7 +29,7 @@ var fetchAllUserLesson = function(cb){
 };
 
 var searchUserLesson = function(obj, cb){
-  UserLessons.forge(obj)
+  new UserLesson(obj)
     .fetch()
     .then(function (userlessons) {
       if (!userlessons) {
