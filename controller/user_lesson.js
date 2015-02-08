@@ -28,7 +28,7 @@ var fetchAllUserLesson = function(cb){
     });
 };
 
-var serachUserLesson = function(obj, cb){
+var searchUserLesson = function(obj, cb){
   UserLesson.forge(obj)
     .fetch()
     .then(function (userlessons) {
@@ -47,6 +47,6 @@ var serachUserLesson = function(obj, cb){
 
 exports.addUserLesson = addUserLesson;
 exports.fetchAllUserLesson = fetchAllUserLesson;
-exports.serachUserLesson = serachUserLesson;
+exports.searchUserLesson = serachUserLesson;
 
 
