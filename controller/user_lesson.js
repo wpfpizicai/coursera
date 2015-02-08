@@ -30,7 +30,7 @@ var fetchAllUserLesson = function(cb){
 
 var searchUserLesson = function(obj, cb){
   new UserLesson(obj)
-    .fetch()
+    .fetchAll()
     .then(function (userlessons) {
       if (!userlessons) {
         cb && cb({error: false, data: {}});
