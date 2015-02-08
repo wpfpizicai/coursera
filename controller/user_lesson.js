@@ -8,17 +8,12 @@ UserLessons = Bookshelf.Collection.extend({
 
 var addUserLesson = function (obj, cb) {
   UserLesson.forge(obj)
-    .fetch()
+    .save()
     .then(function (userlesson) {
-      if (!userlesson) {
-        cb && cb({error: false, data: {}});
-      }
-      else {
-        cb && cb({error: false, data: userlesson.toJSON()});
-      }
+      cb && cb ({error: false, data: userlesson.toJSON()})
     })
     .otherwise(function (err) {
-      cb && cb({error: true, data: {message: err.message}})
+      cb && cb ({error: true, data: {message: err.message}})
     });
 };
 
