@@ -29,7 +29,8 @@ var fetchAllUserLesson = function(cb){
 };
 
 var searchUserLesson = function(obj, cb){
-  new UserLesson(obj)
+  UserLesson
+    .where(obj)
     .fetchAll()
     .then(function (userlessons) {
       if (!userlessons) {
