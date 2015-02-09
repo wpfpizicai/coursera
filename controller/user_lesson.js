@@ -51,7 +51,7 @@ var searchLessonByUserId = function(obj, cb){
       withRelated: ['users', 'lessons']
     })
     .then(function(userlessons){
-      cb && cb({error: false, data: userlessons.toJSON(), lessons: userlessons.related('lessons').toJSON()});
+      cb && cb({error: false, data: userlessons.toJSON()});
     })
 };
 
