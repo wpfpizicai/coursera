@@ -45,6 +45,17 @@ var searchUserLesson = function(obj, cb){
     });
 };
 
+var searchLessonByUserId = function(obj, cb){
+  new UserLesson(obj)
+    .fetch({
+      withRelated: ['users', 'lessons']
+    })
+    .then(function(userlessons){
+      cb && cb({error: false, data: userlessons.toJSON(), lessons: userlessons.related('lessons').toJSON()});
+    })
+};
+
+exports.searchLessonByUserId = searchLessonByUserId;
 exports.addUserLesson = addUserLesson;
 exports.fetchAllUserLesson = fetchAllUserLesson;
 exports.searchUserLesson = searchUserLesson;

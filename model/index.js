@@ -4,10 +4,7 @@ var Bookshelf = require('bookshelf')(knex);
 
 // define user model
 var User = Bookshelf.Model.extend({
-  tableName: 'user',
-  lessons : function () {
-    return this.belongsToMany(Lesson)
-  }
+  tableName: 'user'
 });
 
 var Tag = Bookshelf.Model.extend({
@@ -15,14 +12,17 @@ var Tag = Bookshelf.Model.extend({
 });
 
 var Lesson = Bookshelf.Model.extend({
-  tableName: 'lesson',
-  users : function(){
-    return this.belongsToMany(User);
-  }
+  tableName: 'lesson'
 });
 
 var UserLesson = Bookshelf.Model.extend({
-  tableName: 'user_lesson'
+  tableName: 'user_lesson',
+  users: function (){
+    return this.belongsToMany(User, 'id')
+  },
+  lessons: function(){
+    return this.belongsToMany(Lesson, 'id')
+  }
 });
 
 var LessonTag = Bookshelf.Model.extend({
