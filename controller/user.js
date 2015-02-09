@@ -61,15 +61,15 @@ var delUser = function(obj,cb){
 };
 
 var searchLessonByUserId = function(obj,cb){
-  User.forge(obj)
+  new User(obj)
   .related('lesssons')
   .fetch()
-  .then(function(lesssons){
-    cb && cb({error: false, data: lesssons.toJSON()})
-  })
-  .otherwise(function(err){
-    cb && cb ({error: true, data: {message: err.message}})
-  })
+    .then(function(lesssons){
+      cb && cb({error: false, data: lesssons.toJSON()})
+    })
+    .otherwise(function(err){
+      cb && cb ({error: true, data: {message: err.message}})
+    })
 };
 
 exports.searchUser = searchUser;
