@@ -17,11 +17,8 @@ var Lesson = Bookshelf.Model.extend({
 
 var UserLesson = Bookshelf.Model.extend({
   tableName: 'user_lesson',
-  users: function (){
-    return this.belongsToMany(User, 'id')
-  },
-  lessons: function(){
-    return this.belongsToMany(Lesson, 'id')
+  lessons : function(){
+    return this.belongsToMany(Lesson)
   }
 });
 
