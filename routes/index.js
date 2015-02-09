@@ -39,7 +39,7 @@ router.post('/searchuser',function(req, res){
 
 router.post('/search_lesson_by_userid',function(req, res){
   UserLessons.searchLessonByUserId({
-    id : req.body.id
+    user_id : req.body.id
   },function(result){
     res.json(result)
   })
