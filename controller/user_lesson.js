@@ -46,12 +46,13 @@ var searchUserLesson = function(obj, cb){
 };
 
 var searchLessonByUserId = function(obj, cb){
-  new UserLesson(obj)
+  UserLesson
+    .where(obj)
     .fetch({
-      withRelated: ['lessons']
+      withRelated: ['user']
     })
     .then(function(userlessons){
-      cb && cb({error: false, data: userlessons.related('lessons')});
+      cb && cb({error: false, data: userlessons.related('user')});
     })
 };
 
