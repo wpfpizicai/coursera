@@ -13,13 +13,23 @@
   $('#user_list').on('click',function(e){
     var _target = $(e.target);
     if(_target && $(_target).prop("tagName").toLowerCase() == 'a'){
-      $.post('deluser',{
-        id : $(_target).attr('data-id') - 0
-      },function(result){
-        if(result.error == false){
-          $(_target).parent().remove()
-        }
-      })
+      if($(_target).hasClass('del')){
+        $.post('/deluser',{
+          id : $(_target).attr('data-id') - 0
+        },function(result){
+          if(result.error == false){
+            $(_target).parent().remove()
+          }
+        })
+      }else{
+        $.post('/search_lesson_by_userid',{
+          id : $(_target).attr('data-id') - 0
+        },function(result){
+          if(result.error == false){
+            console.log(result)
+          }
+        })
+      }
     }
   })
   $('#add_user').on('click',function(e){

@@ -58,9 +58,22 @@ var delUser = function(obj,cb){
     .otherwise(function (err) {
       cb && cb({error: true, data: {message: err.message}})
     });
-}
+};
+
+var searchLessonByUserId = function(obj,cb){
+  User.forge(obj)
+  .related('lesssons')
+  .fetch()
+  .then(function(lesssons){
+    cb && cb({error: false, data: lesssons.toJSON()})
+  })
+  .otherwise(function(err){
+    cb && cb ({error: true, data: {message: err.message}})
+  })
+};
 
 exports.searchUser = searchUser;
 exports.fetchAllUsers = fetchAllUsers;
 exports.addUser = addUser;
 exports.delUser = delUser;
+exports.searchLessonByUserId = searchLessonByUserId;

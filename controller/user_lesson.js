@@ -31,22 +31,19 @@ var fetchAllUserLesson = function(cb){
 var searchUserLesson = function(obj, cb){
   UserLesson
     .where(obj)
-    .fetchAll({
-      withRelated : ['lessons']
-    })
+    .fetchAll()
     .then(function (userlessons) {
       if (!userlessons) {
         cb && cb({error: false, data: {}});
       }
       else {
-        cb && cb({error: false, data: userlessons.toJSON(),lessons : userlessons.related('lessons')});
+        cb && cb({error: false, data: userlessons.toJSON()});
       }
     })
     .otherwise(function (err) {
       cb && cb({error: true, data: {message: err.message}})
     });
 };
-
 
 exports.addUserLesson = addUserLesson;
 exports.fetchAllUserLesson = fetchAllUserLesson;
